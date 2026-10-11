@@ -1,0 +1,22 @@
+# SAM deployment configuration
+# More information about the SAM config file:
+# https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-config.html
+
+version = 0.1
+
+[default.deploy.parameters]
+stack_name = "CloudAge"
+region = "eu-central-1"
+confirm_changeset = true
+capabilities = "CAPABILITY_NAMED_IAM"
+s3_prefix = "CloudAge"
+resolve_s3 = true
+parameter_overrides = "Stage=\"staging\" BedrockModelId=\"apac.anthropic.claude-3-7-sonnet-20250219-v1:0\" BedrockRegion=\"ap-south-1\" SystemPrompt=\"who are you?\" PollyVoiceId=\"Danielle\""
+image_repositories = []
+
+[default.build.parameters]
+cached = true
+parallel = true
+
+[default.global.parameters]
+region = "eu-central-1"
